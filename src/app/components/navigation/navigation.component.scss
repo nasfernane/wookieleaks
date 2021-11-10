@@ -1,0 +1,17 @@
+@import './../../../styles/colors.scss';
+
+.nav-container {
+  background-color: $grey-dark;
+  height: 90vh;
+  padding-top: 50px;
+
+  &__list {
+    margin-left: 30px;
+    margin-bottom: 30px;
+
+    &__title {
+      align-self: start;
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="pageWrap">
+  <form [formGroup]="userSearchForm" (ngSubmit)="searchUser()" novalidate>
+    <h1 class="pageWrap--title">Search user</h1>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" type="email" matInput>
+      <mat-error>Email required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="button button--primary">Search</button>
+  </form>
+  <mat-card *ngIf='!validSearch'>
+    <span class="searchError">
+      Sorry, we didn't found any user related to that email.nasfernane@gmail.com
+    </span>
+  </mat-card>
+
+  <mat-card *ngIf="user && validSearch">
+    <mat-list>
+      <mat-list-item matLine>
+        <h2 class="mat-list-item__email">{{ user.email }}</h2>
+      </mat-list-item>
+      <mat-list-item matLine>
+        <p class="mat-list-item__name">{{user.lastname}} {{user.firstname}}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

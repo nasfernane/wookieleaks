@@ -1,0 +1,26 @@
+<div class="pageWrap">
+  <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+    <h1 class="pageWrap--title">Login</h1>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" type="text" matInput>
+      <mat-error>Invalid email structure</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input formControlName="password" type="password" matInput>
+      <mat-error>Password required</mat-error>
+    </mat-form-field>
+    
+    <p>No account yet ? <a href="/signup">click here to register</a></p>
+    <p>Forgotten password ? <a href="/password-lost">click here to recover</a></p>
+
+    <button mat-raised-button class="button button--primary">Login</button>
+  </form>
+  <mat-card *ngIf='!validLogin'>
+    <span class="searchError">
+      Sorry, your login credentials are invalid. Please retry or create an account.
+    </span>
+  </mat-card>
+</div>

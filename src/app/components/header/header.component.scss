@@ -1,0 +1,62 @@
+@import './../../../styles/colors.scss';
+
+.header {
+  height: 10vh;
+  border-bottom: 1px solid $primary;
+  padding: 0 20px;
+  color: $primary;
+
+  &--userConnected {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--userDisconnected {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    span {
+      font-size: 30px;
+      font-weight: 600;
+      margin: 0 10px;
+    }
+
+    &__logo {
+      height: 50px;
+
+      img {
+        height: 50px;
+      }
+    }
+  }
+
+  &--user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__userName {
+      transform: translateY(-1px);
+      line-height: 20px;
+      font-size: 20px !important;
+      margin-right: 10px;
+      font-variant: small-caps;
+    }
+
+    &__logout {
+      font-size: 20px;
+    }
+  }
+}

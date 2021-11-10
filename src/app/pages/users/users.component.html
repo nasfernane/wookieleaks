@@ -1,0 +1,10 @@
+<div class="pageWrap">
+  <h1>All users</h1>
+  <mat-list role="userlist">
+    <mat-list-item role="userlistitem" *ngFor="let user of users; last as last">
+      <h2 class="mat-list-item__email" matLine>{{user.email}}</h2>
+      <p matLine class="mat-list-item__name">{{user.lastname}} {{user.firstname}}</p>
+      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>

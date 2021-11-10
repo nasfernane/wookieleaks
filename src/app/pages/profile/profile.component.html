@@ -1,0 +1,13 @@
+<div class="pageWrap">
+  <h1>Your profile</h1>
+  <mat-card *ngIf="user">
+    <mat-list>
+      <mat-list-item matLine>
+        <h2 class="mat-list-item__email">{{ user.email }}</h2>
+      </mat-list-item>
+      <mat-list-item matLine>
+        <p class="mat-list-item__name">{{user.lastname}} {{user.firstname}}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

@@ -1,0 +1,164 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$wookie-leaks-primary: mat.define-palette(mat.$indigo-palette);
+$wookie-leaks-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$wookie-leaks-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$wookie-leaks-theme: mat.define-light-theme((
+  color: (
+    primary: $wookie-leaks-primary,
+    accent: $wookie-leaks-accent,
+    warn: $wookie-leaks-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($wookie-leaks-theme);
+
+@import './styles/colors.scss';
+
+body {
+  color: $primary !important;
+  font-family: 'Spartan', sans-serif;
+
+  h1 {
+    color: $primary-light !important;
+    align-self: center;
+    font-size: 24px;
+  }
+
+  .button {
+    border-radius: 50px;
+    color: $grey-background;
+    padding: 5px 30px;
+
+    &--primary {
+      background-color: $primary;
+    }
+
+    &--secondary {
+      background-color: $prune;
+    }
+  }
+
+  .pageWrap,
+  .pageWrap {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    form {
+      color: $primary !important;
+      font-family: 'Spartan', sans-serif;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      min-width: 200px;
+      max-width: 400px;
+      padding-bottom: 30px;
+
+      p {
+        align-self: start;
+
+        a {
+          color: $primary-light;
+          cursor: pointer;
+        }
+      }
+
+      mat-form-field.mat-form-field {
+        width: 100%;
+      }
+
+      button {
+        align-self: end;
+      }
+
+    }
+
+    .mat-card {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 200px;
+      max-width: 400px;
+
+      .searchError {
+        align-self: center;
+        display: inline-block;
+        color: #f44336;
+        font-size: 18px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+mat-list.mat-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .mat-list-item {
+    width: 90%;
+    margin: 0 auto;
+
+    &__email {
+      color: $primary-light;
+      font-variant: small-caps;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    &__name {
+      color: $primary;
+      font-size: 20px;
+      font-weight: 200;
+    }
+  }
+}
+
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: $primary !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  /*change color of underline*/
+  background-color: red;
+}
+
+::ng-deep .mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: green !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
