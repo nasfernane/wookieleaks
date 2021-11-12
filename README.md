@@ -14,4 +14,5 @@ Projet d'école visant à réaliser une application front-end avancée en utilis
 - [Swapi](https://swapi.dev/)
 - [Swapi Documentation](https://swapi.dev/documentation)
 - [Native state manager with Angular](https://medium.jonasbandi.net/the-most-simple-state-management-solution-for-angular-1d32706e6f1c)
+- [Managing State in Angular Applications](https://blog.nrwl.io/managing-state-in-angular-applications-22b75ef5625f)
 
