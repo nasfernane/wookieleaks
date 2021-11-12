@@ -39,7 +39,6 @@ export class AuthService {
           withCredentials: true
         }
       });
-      console.log(res);
       return res.status === 200 ? true : false;
     }
   }
@@ -99,6 +98,7 @@ export class AuthService {
       const res: any = await this.axiosInstance.post('/auth/token', { refresh_token, email });
       if (res.status === 201) {
         this.globalService.storeUserData(new Map([['xsrfToken', res.data.xsrfToken], ['accessToken', res.data.accessToken], ['refreshToken', res.data.refreshToken]]));
+        this.globalService.userLogged = true;
         return true;
       } else {
         this.logout();
@@ -122,7 +122,7 @@ export class AuthService {
 
   logout() {
     localStorage.clear();
-    this.globalService.toggleUserLog();
+    this.globalService.userLogged = false;
     this.router.navigate(['/login']);
   }
 }

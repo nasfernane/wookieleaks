@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { GlobalService } from 'src/app/services/global/global.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -7,27 +7,11 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(
-    private globalService: GlobalService,
-    private auth: AuthService,
+    public globalService: GlobalService,
+    public authService: AuthService,
 
   ) { }
-
-  ngOnInit(): void {
-  }
-
-  get userIsLogged() {
-    return this.globalService.userLogged;
-  }
-
-  get currentUserName() {
-    return this.globalService.currentUserName;
-  }
-
-  logout() {
-    this.auth.logout();
-  }
-
 }

@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.globalService.breadcrumb = 'Bounty Search';
   }
 
   async searchUser() {

@@ -1,7 +1,10 @@
-<app-header></app-header>
-<div>
-  <app-navigation fxFlex="20"></app-navigation>
-  <div fxFlex="80">
+<app-header *ngIf="userLogged"></app-header>
+<div class="home-container">
+  <app-navigation *ngIf="userLogged" fxFlex="20"></app-navigation>
+  <div *ngIf="userLogged" fxFlex="80">
+    <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="!userLogged" fxFlex="100">
     <router-outlet></router-outlet>
   </div>
 </div>

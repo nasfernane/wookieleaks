@@ -1,0 +1,26 @@
+<app-page-background image="planets.jpg"></app-page-background>
+<div class="pageWrap">
+  <h1 style="color: #718792 !important">All Planets</h1>
+  <mat-table matSort [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="climate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Climate </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.climate }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="diameter">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Diameter </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.diameter}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="this.globalService.navDetails(row.url)"></mat-row>
+  </mat-table>
+  <mat-paginator
+    #paginator
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10]"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

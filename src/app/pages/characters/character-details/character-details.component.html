@@ -1,0 +1,23 @@
+<app-page-background image="characters.jpg"></app-page-background>
+<div class="pageWrap">
+  <h1>Character Details</h1>
+  <mat-card class="mat-card--large" *ngIf="character">
+    <mat-list >
+      <mat-list-item matLine>
+        <h2 class="mat-list-item__email">{{ character.name }}</h2>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Gender : {{ character.gender }}</span>
+        <span fxFlex="50">Eyes : {{ character.eye_color }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Height : {{ character.height }}</span>
+        <span fxFlex="50">Hairs : {{ character.hair_color }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Mass : {{ character.mass }}</span>
+        <span fxFlex="50">Birthyear : {{ character.birth_year }} GSC</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

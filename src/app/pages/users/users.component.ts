@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GlobalService } from 'src/app/services/global/global.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -9,21 +12,28 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  users: any;
+  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  displayedColumns: string[] = ['email', 'first_name', 'last_name'];
+  // users: any;
+  dataSource;
 
   constructor(
     private userService: UserService,
-    private globalService: GlobalService
+    public globalService: GlobalService
   ) { }
 
   async ngOnInit() {
-    const users = await this.userService.getAllUsers();
-    this.users = users;
-    console.log(this.users);
+    this.globalService.breadcrumb = 'Rebels';
+    this.dataSource = new MatTableDataSource(await this.userService.getAllUsers());
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    // const users = await this.userService.getAllUsers();
+    // this.users = users;
 
-    this.users.forEach(user => {
-      user.lastname = this.globalService.capitalize(user.lastname);
-      user.firstname = this.globalService.capitalize(user.firstname);
-    });
+    // this.users.forEach(user => {
+    //   user.lastname = this.globalService.capitalize(user.lastname);
+    //   user.firstname = this.globalService.capitalize(user.firstname);
+    // });
   }
 }

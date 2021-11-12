@@ -1,6 +1,8 @@
-<div class="pageWrap">
+<app-auth-background></app-auth-background>
+<div class="pageWrap pageWrap--auth" fxLayout="column" fxLayoutAlign="center center">
   <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
     <h1 class="pageWrap--title">Login</h1>
+    <span class="quote">"Authenticate you must, my young padawan."</span>
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input formControlName="email" type="text" matInput>

@@ -1,22 +1,14 @@
-<div class="header header--userDisconnected" *ngIf="!userIsLogged">
-  <div class="header--title header--title__userDisconnected" >
-    <div class="header--title__logo">
-      <img  src="./../../../assets/images/star-wars-chewbacca-001.jpg" alt="Logo" />
-    </div>
-    <span>Wookie Leaks</span>
-  </div>
-</div>
-
-<div class="header header--userConnected" *ngIf="userIsLogged">
+<div class="header header--userConnected" *ngIf="this.globalService.userLogged">
   <div class="header--title header--title__userConnected" fxLayout="row" fxLayoutAlign="space-between center">
     <div class="header--title__logo">
-      <img  src="./../../../assets/images/star-wars-chewbacca-001.jpg" alt="Logo" />
+      <img  src="./../../../assets/icons/wookie-logo-blue.jpg" alt="Logo" />
     </div>
     <span>Wookie Leaks</span>
+    <span class="breadcrumb">&#187; {{ this.globalService.breadcrumb }}</span>
   </div>
 
   <div class="header--user">
-    <span class="header--user__userName">coucou</span>
-    <span class="material-icons header--user__logout" (click)="logout()">logout</span>
+    <span class="header--user__userName" *ngIf="this.globalService.userName">{{ this.globalService.capitalize(this.globalService.userName) }}</span>
+    <span class="material-icons header--user__logout" (click)="this.authService.logout()">logout</span>
   </div>
 </div>

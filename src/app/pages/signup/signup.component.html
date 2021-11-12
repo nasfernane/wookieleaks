@@ -1,6 +1,8 @@
-<div class="pageWrap">
+<app-auth-background></app-auth-background>
+<div class="pageWrap pageWrap--auth" fxLayout="column" fxLayoutAlign="center center">
   <form [formGroup]="signupForm" (ngSubmit)="register()" novalidate>
     <h1 class="pageWrap--title">Register</h1>
+    <span class="quote">"Do or do not. There is no try."</span>
     <mat-form-field>
       <mat-label>First name</mat-label>
       <input formControlName="firstName" type="text" matInput>

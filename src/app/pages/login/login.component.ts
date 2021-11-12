@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.globalService.userLogged) this.router.navigate(['/home']);
   }
 
   async login() {
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
     try {
       await this.authService.login(email, password);
       this.validLogin = false;
-      this.globalService.toggleUserLog();
+      this.globalService.userLogged = true;
       this.router.navigate(['/profile']);
     } catch (err) {
       this.validLogin = false;

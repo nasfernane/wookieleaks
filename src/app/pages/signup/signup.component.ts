@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'; import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { GlobalService } from 'src/app/services/global/global.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +15,7 @@ export class SignupComponent implements OnInit {
     public formBuilder: FormBuilder,
     public authService: AuthService,
     private router: Router,
+    private globalService: GlobalService
   ) {
     this.signupForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
@@ -26,6 +28,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.globalService.userLogged) this.router.navigate(['/home']);
   }
 
   register() {

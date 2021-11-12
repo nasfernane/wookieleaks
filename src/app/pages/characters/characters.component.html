@@ -1,0 +1,41 @@
+<app-page-background image="characters.jpg"></app-page-background>
+<div class="pageWrap" fxLayout="column" fxLayoutAlign="space-between center">
+  <h1>Characters</h1>
+  <form class="filters-form" [formGroup]="formControl" fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-form-field fxFlex="32">
+      <input matInput placeholder="Filter by name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field fxFlex="32">
+      <input matInput placeholder="Filter by birth year" formControlName="birth_year">
+    </mat-form-field>
+    <mat-form-field fxFlex="32">
+      <mat-select [(value)]="genderSelected" formControlName="gender" placeholder="Filter by gender">
+        <mat-option value ="male">Male</mat-option>
+        <mat-option value ="female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  
+  <mat-table matSort [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="birth_year">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Birth Year </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.birth_year }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Gender </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="this.globalService.navDetails(row.url)"></mat-row>
+  </mat-table>
+  <mat-paginator
+    #paginator
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10]"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

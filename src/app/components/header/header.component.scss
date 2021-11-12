@@ -3,7 +3,7 @@
 .header {
   height: 10vh;
   border-bottom: 1px solid $primary;
-  padding: 0 20px;
+  padding: 0 40px;
   color: $primary;
 
   &--userConnected {
@@ -33,10 +33,10 @@
     }
 
     &__logo {
-      height: 50px;
+      height: 60px;
 
       img {
-        height: 50px;
+        height: 60px;
       }
     }
   }
@@ -49,14 +49,24 @@
 
     &__userName {
       transform: translateY(-1px);
-      line-height: 20px;
-      font-size: 20px !important;
-      margin-right: 10px;
+      line-height: 30px;
+      font-size: 30px !important;
+      margin-right: 30px;
       font-variant: small-caps;
+      font-weight: 500;
     }
 
     &__logout {
-      font-size: 20px;
+      font-size: 30px;
+      cursor: pointer;
     }
+  }
+
+  .breadcrumb {
+    color: $primary-light;
+    line-height: 30px;
+    font-size: 25px;
+    margin: 0 auto;
+    font-variant: small-caps;
   }
 }

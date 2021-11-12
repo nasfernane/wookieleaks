@@ -1,0 +1,22 @@
+<div class="pageWrap">
+  <h1>Planet Details</h1>
+  <mat-card class="mat-card--large" *ngIf="planet">
+    <mat-list >
+      <mat-list-item matLine>
+        <h2 class="mat-list-item__email">{{ planet.name }}</h2>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Diameter : {{ planet.diameter }}</span>
+        <span fxFlex="50">Gravity : {{ planet.gravity }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Orbital period : {{ planet.orbital_period }}</span>
+        <span fxFlex="50">Surface water : {{ planet.surface_water }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Terrain : {{ planet.terrain }}</span>
+        <span fxFlex="50">Population : {{ planet.population }} GSC</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

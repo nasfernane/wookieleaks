@@ -1,0 +1,24 @@
+<app-page-background image="starships.jpg"></app-page-background>
+<div class="pageWrap">
+  <h1>Starship Details</h1>
+  <mat-card class="mat-card--large" *ngIf="starship">
+    <mat-list >
+      <mat-list-item matLine>
+        <h2 class="mat-list-item__email">{{ starship.name }}</h2>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Megalight : {{ starship.MGLT }}</span>
+        <span fxFlex="50">Hyperdrive rating : {{ starship.hyperdrive_rating }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Consumables : {{ starship.consumables }}</span>
+        <span fxFlex="50">Cost : {{ starship.cost }} credits</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span fxFlex="50">Crew : {{ starship.crew }} people</span>
+        <span fxFlex="50">Cargo Capacity : {{ starship.cargo_capacity }}</span>
+      </mat-list-item>
+    </mat-list>
+    
+  </mat-card>
+</div>

@@ -1,0 +1,27 @@
+<app-page-background image="starships.jpg"></app-page-background>
+<div class="pageWrap">
+  <h1>Starships</h1>
+  <span class="quote quote--light">"You really have it bad for the Falcon, don’t you?"</span>
+  <mat-table matSort [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="MGLT">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Megalight </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.MGLT}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hyperdrive_rating">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hyperdrive Rating </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.hyperdrive_rating}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="this.globalService.navDetails(row.url)"></mat-row>
+  </mat-table>
+  <mat-paginator
+    #paginator
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10]"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

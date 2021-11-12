@@ -1,10 +1,33 @@
-<div class="pageWrap">
-  <h1>All users</h1>
-  <mat-list role="userlist">
+<div class="pageWrap" fxLayout="column" fxLayoutAlign="space-between center">
+  <h1>Rebels</h1>
+  <span class="quote">"Rebellions are built on hope."</span>
+  <!-- <mat-list role="userlist">
     <mat-list-item role="userlistitem" *ngFor="let user of users; last as last">
       <h2 class="mat-list-item__email" matLine>{{user.email}}</h2>
       <p matLine class="mat-list-item__name">{{user.lastname}} {{user.firstname}}</p>
       <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
     </mat-list-item>
-  </mat-list>
+  </mat-list> -->
+  <mat-table matSort [dataSource]="dataSource">
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="last_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.lastname }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="first_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.firstname}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="this.globalService.navDetails(row.url)"></mat-row>
+  </mat-table>
+  <mat-paginator
+    #paginator
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10]"
+    showFirstLastButtons>
+  </mat-paginator>
 </div>

@@ -1,17 +1,32 @@
 @import './../../../styles/colors.scss';
 
 .nav-container {
-  background-color: $grey-dark;
-  height: 90vh;
+  background-color: $grey;
   padding-top: 50px;
+  height: 90vh;
 
   &__list {
-    margin-left: 30px;
+    margin-left: 50px;
     margin-bottom: 30px;
 
     &__title {
       align-self: start;
-      font-size: 20px;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    a {
+      font-size: 25px;
+
+      mat-icon {
+        height: 40px;
+        width: 40px;
+        margin-right: 15px;
+      }
+
+      &:hover {
+        color: $primary-light;
+      }
     }
   }
 }
