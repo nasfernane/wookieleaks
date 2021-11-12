@@ -45,8 +45,7 @@ export class CharactersComponent implements OnInit {
       const b = !filter.birth_year || data.birth_year.toLowerCase().includes(filter.birth_year);
       const c = !filter.gender || data.gender === filter.gender;
       return a && b && c;
-    }) as (PeriodicElement, string) => boolean;
-
+    });
   }
 
   get dataSource() {

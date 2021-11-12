@@ -1,12 +1,16 @@
-<div class="pageWrap">
-  <h1>Your profile</h1>
-  <mat-card *ngIf="user">
+<app-page-background image="profile.jpg"></app-page-background>
+<div class="pageWrap" style="height: 100%; padding-bottom: 60px;" fxLayout="column" fxLayoutAlign="center center">
+  <!-- <h1>Your profile</h1> -->
+  <mat-card *ngIf="user" style="opacity: 0.8;">
     <mat-list>
       <mat-list-item matLine>
         <h2 class="mat-list-item__email">{{ user.email }}</h2>
       </mat-list-item>
       <mat-list-item matLine>
-        <p class="mat-list-item__name">{{user.lastname}} {{user.firstname}}</p>
+        <p class="mat-list-item__name">{{ this.globalService.capitalize(user.firstname) }} {{this.globalService.capitalize(user.lastname)}}</p>
+      </mat-list-item>
+      <mat-list-item matLine>
+        <p class="mat-list-item__name">Warrant n°{{ user.id }}</p>
       </mat-list-item>
     </mat-list>
   </mat-card>

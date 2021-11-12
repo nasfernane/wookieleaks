@@ -1,13 +1,7 @@
+<app-page-background image="rebels.jpg"></app-page-background>
 <div class="pageWrap" fxLayout="column" fxLayoutAlign="space-between center">
-  <h1>Rebels</h1>
-  <span class="quote">"Rebellions are built on hope."</span>
-  <!-- <mat-list role="userlist">
-    <mat-list-item role="userlistitem" *ngFor="let user of users; last as last">
-      <h2 class="mat-list-item__email" matLine>{{user.email}}</h2>
-      <p matLine class="mat-list-item__name">{{user.lastname}} {{user.firstname}}</p>
-      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-    </mat-list-item>
-  </mat-list> -->
+  <h1 class="light">Rebels</h1>
+  <span class="quote quote--light">"Rebellions are built on hope."</span>
   <mat-table matSort [dataSource]="dataSource">
     <ng-container matColumnDef="email">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>

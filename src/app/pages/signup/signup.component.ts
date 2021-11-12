@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
     const accountCreated = this.authService.register(firstName, lastName, userName, email, password, passwordConfirm);
 
     if (accountCreated) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/profile']);
     }
   }
 

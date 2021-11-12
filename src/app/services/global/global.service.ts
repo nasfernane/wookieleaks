@@ -53,13 +53,6 @@ export class GlobalService {
     return this._breadcrumb;
   }
 
-  // public set wookiee(bool: boolean) {
-  //   this._wookiee = bool;
-  // }
-
-  // public get wookiee() {
-  //   return this._wookiee;
-  // }
 
   // store toutes les données utilisateurs avec une map de paires clés/valeurs
   storeUserData(args: Map<string, string>) {

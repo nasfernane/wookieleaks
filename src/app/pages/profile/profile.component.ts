@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   async ngOnInit() {
     this.globalService.breadcrumb = 'Holo Profile';
     this.user = await this.authService.getCurrentUser();
+    console.log(this.user);
   }
 
 }

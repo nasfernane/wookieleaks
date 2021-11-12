@@ -32,11 +32,6 @@ $wookie-leaks-theme: mat.define-light-theme((color: (primary: $wookie-leaks-prim
 @import './styles/colors.scss';
 @import './styles/typography.scss';
 
-// @font-face {
-//   font-family: "Jedi";
-//   src: url('./assets/fonts/StarJedi-DGRW.ttf') format('truetype');
-// }
-
 body,
 html {
   margin: 0;
@@ -49,7 +44,7 @@ html {
 
 body {
   color: $primary !important;
-  font-family: 'Jedi', 'Spartan', sans-serif;
+  font-family: 'Spartan', sans-serif;
 
   .quote {
     font-size: 18px;
@@ -62,10 +57,16 @@ body {
     }
   }
 
+
+
   h1 {
-    color: $primary-dark !important;
+    color: $primary-dark;
     align-self: center;
     font-size: 30px !important;
+  }
+
+  .light {
+    color: $grey !important;
   }
 
   .button {
@@ -97,6 +98,7 @@ body {
     mat-paginator {
       border: 1px solid black;
       width: 50%;
+      opacity: 0.9;
     }
 
     mat-table {
@@ -105,6 +107,7 @@ body {
       mat-row {
         &:hover {
           background-color: $grey-background;
+          cursor: pointer;
         }
       }
 
